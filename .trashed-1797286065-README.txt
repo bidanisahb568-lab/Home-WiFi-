@@ -1,0 +1,18 @@
+DUBAI CONNECT WEBSITE
+
+Files:
+- index.html: complete responsive single-file website.
+
+How to use:
+1. Open index.html in a browser to preview.
+2. Open index.html in a text editor (for example VS Code).
+3. In the script section, find: const packages = [...]
+4. Replace all ADD PRICE / ADD SPEED / placeholder details with your verified current package information.
+5. The WhatsApp number is set to 971552970460. To change it later, search for 971552970460 and replace it consistently.
+6. Test the customer form on a phone. WhatsApp opens with the inquiry message; the customer must press Send.
+7. Upload index.html to a static hosting service or deploy the folder with Vercel.
+
+Important:
+- Package details are placeholders, not real Etisalat or du offers.
+- Add your confirmed business legal details and review Privacy Policy / Terms before publishing.
+- This static version sends inquiries to WhatsApp; it does not save leads in an online database or include a secure admin dashboard.

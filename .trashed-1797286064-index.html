@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dubai Connect helps customers explore Home WiFi, Office WiFi and Business SIM options in Dubai.">
+  <meta name="theme-color" content="#090909">
+  <title>Dubai Connect | Home WiFi, Office WiFi & Business SIM</title>
+  <style>
+    :root{--black:#090909;--panel:#151515;--panel2:#1d1d1d;--gold:#d4af37;--gold2:#f0d779;--white:#f8f7f2;--muted:#b8b5aa;--line:#34312a;--green:#20c768}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--black);color:var(--white);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
+    a{color:inherit;text-decoration:none} button,input,select,textarea{font:inherit}
+    .wrap{width:min(1120px,92%);margin:auto}.topbar{background:#111;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+    .topbar .wrap{display:flex;justify-content:space-between;gap:12px;padding:9px 0;flex-wrap:wrap}
+    header{position:sticky;top:0;z-index:20;background:rgba(9,9,9,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:1.5px}.brandmark{width:43px;height:43px;border:1px solid var(--gold);border-radius:12px;display:grid;place-items:center;color:var(--gold);font-size:23px}
+    .brand small{display:block;font-size:10px;letter-spacing:3px;color:var(--muted);font-weight:600}
+    nav{display:flex;gap:22px;color:#ddd;font-size:14px} nav a:hover{color:var(--gold)}
+    .btn{border:0;border-radius:8px;padding:12px 18px;background:var(--gold);color:#111;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.2s}
+    .btn:hover{background:var(--gold2);transform:translateY(-1px)} .btn.outline{background:transparent;color:var(--gold);border:1px solid var(--gold)} .btn.dark{background:#242424;color:var(--white);border:1px solid var(--line)}
+    .hero{padding:82px 0 68px;background:radial-gradient(ellipse at 80% 20%,rgba(212,175,55,.17),transparent 38%),linear-gradient(120deg,#090909,#14120c)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:42px}
+    .eyebrow{color:var(--gold);font-weight:800;letter-spacing:3px;font-size:12px;text-transform:uppercase}
+    h1{font-size:clamp(38px,6vw,66px);line-height:1.04;margin:16px 0;color:#fff;letter-spacing:-1.8px}
+    h1 span,.gold{color:var(--gold)} .hero p{color:#c8c4b8;font-size:18px;max-width:650px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+    .hero-card{border:1px solid #5a4b20;background:linear-gradient(145deg,#201b0c,#111);border-radius:20px;padding:28px;box-shadow:0 20px 70px #0008}
+    .hero-card .signal{font-size:55px;color:var(--gold);margin-bottom:12px}.hero-card h3{font-size:24px;margin:0 0 8px}.hero-card p{font-size:14px}
+    .mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}.mini-stats div{background:#ffffff08;padding:12px;border-radius:10px;text-align:center}.mini-stats strong{display:block;color:var(--gold);font-size:18px}.mini-stats span{font-size:11px;color:var(--muted)}
+    section{padding:68px 0}.section-head{text-align:center;max-width:720px;margin:0 auto 34px}.section-head h2{font-size:clamp(28px,4vw,40px);margin:8px 0}.section-head p{color:var(--muted);margin:0}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.service{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:25px;transition:.2s}.service:hover{border-color:var(--gold);transform:translateY(-3px)}
+    .service .ico{font-size:32px;color:var(--gold)}.service h3{margin:12px 0 5px}.service p{color:var(--muted);font-size:14px}.service a{color:var(--gold);font-weight:700;font-size:14px}
+    .catalogue{background:#101010}.filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+    .filter{border:1px solid var(--line);color:#ddd;background:#171717;padding:10px 16px;border-radius:30px;cursor:pointer}.filter.active,.filter:hover{background:var(--gold);color:#111;border-color:var(--gold);font-weight:800}
+    .provider-row{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:24px 0 14px;flex-wrap:wrap}.provider-row h3{margin:0}.provider-tag{font-size:12px;color:var(--gold);border:1px solid #66551e;padding:5px 10px;border-radius:30px}
+    .packages{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.package{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:22px;display:flex;flex-direction:column;min-height:270px}
+    .package h4{font-size:20px;margin:10px 0 4px}.package .provider{color:var(--gold);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
+    .package .price{font-size:28px;font-weight:800;margin:12px 0}.package .price small{font-size:12px;color:var(--muted);font-weight:400}
+    .package ul{padding-left:18px;color:#c9c6bc;font-size:13px;flex:1}.package li{margin:5px 0}.package .btn{width:100%;margin-top:12px}
+    .note{color:var(--muted);font-size:12px;text-align:center;margin:20px auto 0;max-width:800px}
+    .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.why{padding:20px;border:1px solid var(--line);border-radius:12px;background:#111}.why b{color:var(--gold);display:block;margin-bottom:7px}.why span{color:var(--muted);font-size:13px}
+    .contact{background:linear-gradient(120deg,#171307,#0d0d0d);border-top:1px solid #4a3c18;border-bottom:1px solid #4a3c18}.contact-box{display:flex;justify-content:space-between;align-items:center;gap:25px;flex-wrap:wrap}.contact-box h2{margin:0 0 8px}.contact-box p{margin:0;color:var(--muted)}
+    footer{padding:30px 0;color:var(--muted);font-size:13px}footer .foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .wa-float{position:fixed;right:18px;bottom:18px;z-index:30;border-radius:50px;background:var(--green);color:#07170d;padding:13px 18px;font-weight:800;box-shadow:0 8px 25px #0008}
+    .modal{display:none;position:fixed;inset:0;z-index:50;background:#000c;overflow:auto;padding:22px}.modal.open{display:block}.modal-card{width:min(760px,100%);margin:25px auto;background:#141414;border:1px solid #66551e;border-radius:17px;padding:25px;position:relative}
+    .close{position:absolute;right:16px;top:12px;background:transparent;color:white;border:0;font-size:27px;cursor:pointer}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:13px;color:#ddd}.field input,.field select,.field textarea{width:100%;padding:12px;border-radius:8px;background:#090909;color:white;border:1px solid #45413a;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}.field textarea{min-height:85px;resize:vertical}.form-help{font-size:12px;color:var(--muted)}
+    .legal{color:var(--muted);font-size:13px;max-width:850px;margin:auto}.legal h3{color:var(--gold)}
+    @media(max-width:800px){nav{display:none}.hero-grid{grid-template-columns:1fr}.services,.packages{grid-template-columns:1fr 1fr}.why-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:540px){.hero{padding:55px 0}.services,.packages,.why-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.hero-actions .btn{width:100%}.topbar .wrap{justify-content:center}.mini-stats{grid-template-columns:1fr 1fr 1fr}}
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="wrap"><span>Dubai, United Arab Emirates</span><span>WhatsApp: +971 55 297 0460</span></div></div>
+  <header><div class="wrap nav">
+    <a class="brand" href="#home"><span class="brandmark">⌁</span><span>DUBAI CONNECT<small>TELECOM SERVICES</small></span></a>
+    <nav><a href="#services">Services</a><a href="#packages">Packages</a><a href="#why">Why Us</a><a href="#contact">Contact</a></nav>
+    <a class="btn" href="https://wa.me/971552970460" target="_blank" rel="noopener">WhatsApp Us</a>
+  </div></header>
+
+  <main>
+    <section class="hero" id="home"><div class="wrap hero-grid">
+      <div><div class="eyebrow">Premium connectivity · Dubai UAE</div>
+        <h1>Stay Connected.<br><span>Stay Ahead.</span></h1>
+        <p>Explore Home WiFi, Office Internet and Business SIM options from Etisalat and du. Choose a service and send your requirements directly to our WhatsApp team.</p>
+        <div class="hero-actions"><a class="btn" href="#packages">Explore Packages</a><a class="btn outline" href="#contact">Contact Us</a></div>
+      </div>
+      <div class="hero-card"><div class="signal">◉</div><h3>Connectivity for every need</h3><p>Home, office and business mobile connectivity inquiries in one place.</p>
+        <div class="mini-stats"><div><strong>Home</strong><span>WiFi</span></div><div><strong>Office</strong><span>Internet</span></div><div><strong>Business</strong><span>SIM</span></div></div>
+      </div>
+    </div></section>
+
+    <section id="services"><div class="wrap"><div class="section-head"><div class="eyebrow">What we offer</div><h2>Our <span class="gold">Services</span></h2><p>Choose the service you need and browse the available package options.</p></div>
+      <div class="services">
+        <article class="service"><div class="ico">⌁</div><h3>Home WiFi</h3><p>Explore internet options for apartments and villas in Dubai.</p><a href="#packages" onclick="setService('Home WiFi')">View Home WiFi →</a></article>
+        <article class="service"><div class="ico">▦</div><h3>Office WiFi</h3><p>Connectivity inquiries for offices, teams and business locations.</p><a href="#packages" onclick="setService('Office WiFi')">View Office WiFi →</a></article>
+        <article class="service"><div class="ico">▣</div><h3>Business SIM</h3><p>Ask about business mobile SIM options, data and calling needs.</p><a href="#packages" onclick="setService('Business SIM')">View Business SIM →</a></article>
+      </div>
+    </div></section>
+
+    <section class="catalogue" id="packages"><div class="wrap">
+      <div class="section-head"><div class="eyebrow">Choose your connection</div><h2>Explore <span class="gold">Packages</span></h2><p>Filter by service and provider. Package details below are editable placeholders until you enter your verified offers.</p></div>
+      <div class="filters" id="serviceFilters">
+        <button class="filter active" data-service="All">All Services</button>
+        <button class="filter" data-service="Home WiFi">Home WiFi</button>
+        <button class="filter" data-service="Office WiFi">Office WiFi</button>
+        <button class="filter" data-service="Business SIM">Business SIM</button>
+      </div>
+      <div class="filters" id="providerFilters">
+        <button class="filter active" data-provider="All">All Providers</button>
+        <button class="filter" data-provider="Etisalat">Etisalat</button>
+        <button class="filter" data-provider="du">du</button>
+      </div>
+      <div id="packageGroups"></div>
+      <p class="note">Important: Replace every sample/placeholder with your current, verified package information before advertising. Availability, prices, contract terms and eligibility must be confirmed with the relevant provider.</p>
+    </div></section>
+
+    <section id="why"><div class="wrap"><div class="section-head"><div class="eyebrow">Dubai Connect</div><h2>Why <span class="gold">Choose Us?</span></h2><p>A simple way to send your connectivity requirements and request package information.</p></div>
+      <div class="why-grid"><div class="why"><b>Easy Inquiry</b><span>Send your requirements through a simple form.</span></div><div class="why"><b>Provider Choice</b><span>Ask about Etisalat and du options.</span></div><div class="why"><b>Clear Requirements</b><span>Share your area, service type and needs.</span></div><div class="why"><b>WhatsApp Contact</b><span>Continue your inquiry directly on WhatsApp.</span></div></div>
+    </div></section>
+
+    <section class="contact" id="contact"><div class="wrap contact-box"><div><div class="eyebrow">Need help choosing?</div><h2>Let's get you <span class="gold">connected.</span></h2><p>Tell us what you need and contact Dubai Connect on WhatsApp.</p></div><a class="btn" href="https://wa.me/971552970460?text=Hello%20Dubai%20Connect%2C%20I%20need%20information%20about%20your%20packages." target="_blank" rel="noopener">Chat on WhatsApp</a></div></section>
+
+    <section id="privacy"><div class="wrap legal"><h3>Privacy Policy</h3><p>Information entered in the inquiry form is placed into a WhatsApp message addressed to Dubai Connect. This static website does not itself store form submissions on a server. When you continue to WhatsApp, WhatsApp's own terms and privacy policy apply. Do not enter sensitive personal or financial information. Update this policy to reflect your actual business practices before publishing.</p><h3>Terms & Conditions</h3><p>Package details, prices, speeds, coverage, installation, contract terms and eligibility are subject to confirmation by the relevant provider. Submitting an inquiry is not a confirmed order, activation or service booking. Dubai Connect is presented as an independent inquiry service and is not represented as the official website of Etisalat or du. Add your business's final legal details and applicable terms before launch.</p></div></section>
+  </main>
+
+  <footer><div class="wrap foot"><span>© <span id="year"></span> Dubai Connect. All rights reserved.</span><span>Independent telecom inquiry service · Dubai, UAE</span><span><a href="#privacy">Privacy & Terms</a></span></div></footer>
+  <a class="wa-float" href="https://wa.me/971552970460?text=Hello%20Dubai%20Connect" target="_blank" rel="noopener">☏ WhatsApp</a>
+
+  <div class="modal" id="inquiryModal" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+    <div class="modal-card"><button class="close" type="button" aria-label="Close" onclick="closeModal()">×</button>
+      <div class="eyebrow">Customer inquiry</div><h2 id="formTitle">Send your <span class="gold">requirements</span></h2>
+      <p class="form-help">Complete the fields below. WhatsApp will open with your details. You must press Send in WhatsApp to submit the inquiry.</p>
+      <form id="leadForm"><div class="form-grid">
+        <div class="field"><label for="name">Full name *</label><input id="name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="phone">Your WhatsApp number *</label><input id="phone" name="phone" required placeholder="+971..." autocomplete="tel"></div>
+        <div class="field"><label for="service">Service *</label><select id="service" name="service" required><option>Home WiFi</option><option>Office WiFi</option><option>Business SIM</option></select></div>
+        <div class="field"><label for="provider">Preferred provider *</label><select id="provider" name="provider" required><option>Etisalat</option><option>du</option><option>Not sure / advise me</option></select></div>
+        <div class="field full"><label for="package">Selected package</label><input id="package" name="package" readonly></div>
+        <div class="field"><label for="emirate">Emirate *</label><select id="emirate" name="emirate" required><option value="">Select emirate</option><option>Dubai</option><option>Abu Dhabi</option><option>Sharjah</option><option>Ajman</option><option>Other</option></select></div>
+        <div class="field"><label for="area">Area / community *</label><input id="area" name="area" required placeholder="e.g. Deira, Marina"></div>
+        <div class="field"><label for="building">Building / company name</label><input id="building" name="building"></div>
+        <div class="field"><label for="unit">Apartment / office / villa no.</label><input id="unit" name="unit"></div>
+        <div class="field"><label for="budget">Monthly budget (AED)</label><input id="budget" name="budget" placeholder="Optional"></div>
+        <div class="field"><label for="date">Preferred installation date</label><input id="date" name="date" type="date"></div>
+        <div class="field full" id="homeFields"><label for="homeDetails">Home details (rooms, users, apartment/villa)</label><textarea id="homeDetails" name="homeDetails"></textarea></div>
+        <div class="field full" id="officeFields" hidden><label for="officeDetails">Office details (company, employees, devices, required speed)</label><textarea id="officeDetails" name="officeDetails"></textarea></div>
+        <div class="field full" id="simFields" hidden><label for="simDetails">SIM details (number of SIMs, data, local/international minutes, SIM/eSIM)</label><textarea id="simDetails" name="simDetails"></textarea></div>
+        <div class="field full"><label for="extra">Additional requirements</label><textarea id="extra" name="extra"></textarea></div>
+        <div class="field full"><label><input type="checkbox" id="consent" required style="width:auto"> I agree to share these inquiry details with Dubai Connect through WhatsApp. *</label></div>
+      </div>
+      <p id="formError" class="form-help" style="color:#ff9b9b"></p>
+      <button class="btn" type="submit" style="width:100%;margin-top:18px">Continue to WhatsApp →</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // EDIT YOUR REAL, VERIFIED PACKAGE DETAILS HERE.
+    // Do not publish placeholder prices or invented provider offers.
+    const packages = [
+      {service:"Home WiFi",provider:"Etisalat",name:"Home WiFi – Package 1",price:"ADD PRICE",speed:"ADD SPEED",details:["Add verified router details","Add contract duration","Add installation fee"]},
+      {service:"Home WiFi",provider:"Etisalat",name:"Home WiFi – Package 2",price:"ADD PRICE",speed:"ADD SPEED",details:["Add verified package benefits","Add contract duration","Add installation fee"]},
+      {service:"Home WiFi",provider:"du",name:"Home WiFi – Package 1",price:"ADD PRICE",speed:"ADD SPEED",details:["Add verified router details","Add contract duration","Add installation fee"]},
+      {service:"Home WiFi",provider:"du",name:"Home WiFi – Package 2",price:"ADD PRICE",speed:"ADD SPEED",details:["Add verified package benefits","Add contract duration","Add installation fee"]},
+      {service:"Office WiFi",provider:"Etisalat",name:"Office Internet – Package 1",price:"ADD PRICE",speed:"ADD SPEED",details:["Add verified business features","Add static IP details if applicable","Add contract duration"]},
+      {service:"Office WiFi",provider:"du",name:"Office Internet – Package 1",price:"ADD PRICE",speed:"ADD SPEED",details:["Add verified business features","Add static IP details if applicable","Add contract duration"]},
+      {service:"Business SIM",provider:"Etisalat",name:"Business SIM – Package 1",price:"ADD PRICE",speed:"ADD DATA ALLOWANCE",details:["Add local minutes","Add international minutes","Add SMS and contract details"]},
+      {service:"Business SIM",provider:"du",name:"Business SIM – Package 1",price:"ADD PRICE",speed:"ADD DATA ALLOWANCE",details:["Add local minutes","Add international minutes","Add SMS and contract details"]}
+    ];
+    let selectedService="All", selectedProvider="All", selectedPackage="";
+    const groups=document.getElementById("packageGroups");
+    function renderPackages(){
+      groups.innerHTML="";
+      const filtered=packages.filter(p=>(selectedService==="All"||p.service===selectedService)&&(selectedProvider==="All"||p.provider===selectedProvider));
+      if(!filtered.length){groups.innerHTML='<p class="note">No packages in this filter yet.</p>';return;}
+      const services=[...new Set(filtered.map(p=>p.service))];
+      services.forEach(service=>{
+        const heading=document.createElement("div");heading.className="provider-row";heading.innerHTML=`<h3>${service}</h3><span class="provider-tag">ETISALAT + du OPTIONS</span>`;groups.appendChild(heading);
+        const grid=document.createElement("div");grid.className="packages";
+        filtered.filter(p=>p.service===service).forEach(p=>{
+          const card=document.createElement("article");card.className="package";
+          const safeDetails=p.details.map(x=>`<li>${escapeHTML(x)}</li>`).join("");
+          card.innerHTML=`<div class="provider">${escapeHTML(p.provider)}</div><h4>${escapeHTML(p.name)}</h4><div class="price">${escapeHTML(p.price)} <small>${p.price==="ADD PRICE"?"":"AED / month"}</small></div><div class="form-help">${escapeHTML(p.speed)}</div><ul>${safeDetails}</ul><button class="btn" type="button">Select Package</button>`;
+          card.querySelector("button").addEventListener("click",()=>openModal(p));
+          grid.appendChild(card);
+        });groups.appendChild(grid);
+      });
+    }
+    function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+    document.querySelectorAll("#serviceFilters button").forEach(b=>b.addEventListener("click",()=>{selectedService=b.dataset.service;document.querySelectorAll("#serviceFilters button").forEach(x=>x.classList.toggle("active",x===b));renderPackages();}));
+    document.querySelectorAll("#providerFilters button").forEach(b=>b.addEventListener("click",()=>{selectedProvider=b.dataset.provider;document.querySelectorAll("#providerFilters button").forEach(x=>x.classList.toggle("active",x===b));renderPackages();}));
+    function setService(s){selectedService=s;document.querySelectorAll("#serviceFilters button").forEach(x=>x.classList.toggle("active",x.dataset.service===s));renderPackages();}
+    function openModal(p){selectedPackage=p.name;document.getElementById("service").value=p.service;document.getElementById("provider").value=p.provider;document.getElementById("package").value=p.name;toggleFields();document.getElementById("inquiryModal").classList.add("open");document.body.style.overflow="hidden";}
+    function closeModal(){document.getElementById("inquiryModal").classList.remove("open");document.body.style.overflow="";}
+    document.getElementById("service").addEventListener("change",toggleFields);
+    function toggleFields(){const s=document.getElementById("service").value;document.getElementById("homeFields").hidden=s!=="Home WiFi";document.getElementById("officeFields").hidden=s!=="Office WiFi";document.getElementById("simFields").hidden=s!=="Business SIM";}
+    document.getElementById("leadForm").addEventListener("submit",e=>{
+      e.preventDefault();const f=e.currentTarget;if(!f.reportValidity())return;
+      const v=id=>document.getElementById(id).value.trim();
+      const lines=[
+        "DUBAI CONNECT - NEW CUSTOMER INQUIRY","",
+        "Customer name: "+v("name"),"Customer WhatsApp: "+v("phone"),
+        "Service: "+v("service"),"Provider: "+v("provider"),"Selected package: "+(v("package")||"Not selected"),
+        "Emirate: "+v("emirate"),"Area: "+v("area"),"Building/company: "+v("building"),"Unit: "+v("unit"),
+        "Monthly budget: "+v("budget"),"Preferred installation date: "+v("date"),
+        "Home details: "+v("homeDetails"),"Office details: "+v("officeDetails"),"SIM details: "+v("simDetails"),
+        "Additional requirements: "+v("extra"),"",
+        "Please contact me about this inquiry."
+      ];
+      const url="https://wa.me/971552970460?text="+encodeURIComponent(lines.join("\n"));
+      window.open(url,"_blank","noopener");
+      document.getElementById("formError").textContent="WhatsApp has opened. Please press Send in WhatsApp to submit your inquiry.";
+    });
+    document.getElementById("inquiryModal").addEventListener("click",e=>{if(e.target.id==="inquiryModal")closeModal();});
+    document.getElementById("year").textContent=new Date().getFullYear();
+    renderPackages();
+  </script>
+</body>
+</html>
